@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Real-time News Check</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>📰 Real-time News Predictions</h1>
+    <a href="/">Back to Manual Check</a>
+    <ul>
+        {% for item in predictions %}
+            <li>
+                <h3>{{ item.title }}</h3>
+                <p>{{ item.desc }}</p>
+                <strong>{{ item.label }}</strong>
+                <hr>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
