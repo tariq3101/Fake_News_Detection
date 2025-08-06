@@ -1,12 +1,16 @@
 from flask import Flask, render_template, request
 import joblib
 import requests
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = Flask(__name__)
 model = joblib.load('model.pkl')
 vectorizer = joblib.load('vectorizer.pkl')
 
-NEWS_API_KEY = '0f36b50562df423190096b7c99359c65'  
+NEWS_API_KEY = os.getenv('NEWS_API_KEY')
 
 @app.route('/')
 def home():
